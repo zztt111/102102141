@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>投骰子</title>
+  <link rel="stylesheet" href="界面.css">
+
+</head>
+
+<body>
+  <!-- 对局状态 -->
+  <div class="duiju">
+    <div class="item">菜单</div>
+    <div class="item">当前轮数</div>
+    <div class="item">当前局数</div>
+    <div class="item">当前倍率</div>
+  </div>
+
+  <!-- 骰子区域 -->
+  <div class="touzi">
+    <ul class="tz">
+      <li  style="list-style-type: none;"><img id="img1" src="./img/1.png" width="200px" height="200px"></li>
+      <li  style="list-style-type: none;"><img id="img2" src="./img/1.png" width="200px" height="200px"></li>
+      <li  style="list-style-type: none;"><img id="img3" src="./img/1.png" width="200px" height="200px"></li>
+      <li  style="list-style-type: none;"><img id="img4" src="./img/1.png" width="200px" height="200px"></li>
+      <li  style="list-style-type: none;"><img id="img5" src="./img/1.png" width="200px" height="200px"></li>
+    </ul>
+    <button id="btn">摇骰子</button>
+    <button id="jiabei">不加倍</button>
+    <button id="jiabei">加倍</button>
+    <button id="jiabei">超级加倍</button>
+    <!-- 投骰子的按钮 -->
+  </div>
+  <div class="cleat"></div>
+
+
+  <!-- 玩家情况区域 -->
+  <div class="player">
+    <div class="wj">玩家一:
+
+    </div>
+    <div class="wj">玩家二:</div>
+    <div class="wj">玩家三:</div>
+    <div class="wj">玩家四:</div>
+  </div>
+
+
+
+  <script src="界面.js"></script>
+
+</body>
+
+</html>
