@@ -1,56 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>投骰子</title>
+    <link rel="stylesheet" href="界面.css" />
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>投骰子</title>
-  <link rel="stylesheet" href="界面.css">
+  <body>
+    <video
+      id="video"
+      src="img\seagull1.mp4"
+      autoplay
+      loop
+      muted
+    ></video>
+    <video
+      id="stvideo"
+      src="img\seagull1.mp4"
+      autoplay
+      loop
+      muted
+    ></video>
+    <!-- 开始界面 -->
+    <div class="start">
+      <!-- <video
+      id="stvideo"
+      src="img\seagull1.mp4"
+      autoplay
+      loop
+      muted
+    ></video> -->
+      <div class="ai">
+        <button
+          class="n1"
+          onclick="{ if(confirm('确认进行简单难度'))location.href='AI.html'}"
+          id="ai1"
+        >
+          简单
+        </button>
+        <button
+          class="n2"
+          onclick="{ if(confirm('确认进行普通难度'))location.href='AI.html'}"
+          id="ai2"
+        >
+          普通
+        </button>
+        <button
+          class="n3"
+          onclick="{ if(confirm('确认进行困难难度'))location.href='AI.html'}"
+          id="ai3"
+        >
+          困难
+        </button>
+      </div>
+      <div class="vs">
+        对局数量:
+        <input class="vs0" type="text" name="nub" value="3" />
 
-</head>
+        初始筹码:
+        <input class="vs0" type="text" name="money" value="1000" />
 
-<body>
-  <!-- 对局状态 -->
-  <div class="duiju">
-    <div class="item">菜单</div>
-    <div class="item">当前轮数</div>
-    <div class="item">当前局数</div>
-    <div class="item">当前倍率</div>
-  </div>
+        初始倍率():
+        <input class="vs0" type="text" name="beil" value="1" />
 
-  <!-- 骰子区域 -->
-  <div class="touzi">
-    <ul class="tz">
-      <li  style="list-style-type: none;"><img id="img1" src="./img/1.png" width="200px" height="200px"></li>
-      <li  style="list-style-type: none;"><img id="img2" src="./img/1.png" width="200px" height="200px"></li>
-      <li  style="list-style-type: none;"><img id="img3" src="./img/1.png" width="200px" height="200px"></li>
-      <li  style="list-style-type: none;"><img id="img4" src="./img/1.png" width="200px" height="200px"></li>
-      <li  style="list-style-type: none;"><img id="img5" src="./img/1.png" width="200px" height="200px"></li>
-    </ul>
-    <button id="btn">摇骰子</button>
-    <button id="jiabei">不加倍</button>
-    <button id="jiabei">加倍</button>
-    <button id="jiabei">超级加倍</button>
-    <!-- 投骰子的按钮 -->
-  </div>
-  <div class="cleat"></div>
-
-
-  <!-- 玩家情况区域 -->
-  <div class="player">
-    <div class="wj">玩家一:
-
+        <button class="starting2">开始游戏</button>
+      </div>
+      <div class="basic">
+        <button id="rule" >规则</button>
+        <audio id="music2" src="img\music0.m4a"  loop="loop">你的浏览器不支持audio标签。</audio>     
+        <button id="music"><svg t="1697017988979" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="8629" width="60px" height="60px"><path d="M227.456 959.232c-50.56 0-92.864-26.496-107.776-67.52-10.368-28.416-6.528-59.776 10.752-88.128a143.552 143.552 0 0 1 74.24-59.072 152.32 152.32 0 0 1 51.968-9.344c50.56 0 92.864 26.496 107.776 67.52 10.368 28.416 6.528 59.776-10.752 88.128a143.552 143.552 0 0 1-74.24 59.072 152.32 152.32 0 0 1-51.968 9.344z m29.184-172.864c-11.52 0-23.04 2.112-34.432 6.208a92.352 92.352 0 0 0-48 37.632c-9.024 14.848-11.264 30.464-6.4 44.032 10.432 28.736 54.272 42.048 94.08 27.584 20.8-7.552 37.888-20.928 48-37.632 9.024-14.848 11.264-30.464 6.4-44.032-7.488-20.544-30.912-33.792-59.648-33.792z" p-id="8630"></path><path d="M344.128 844.736a25.6 25.6 0 0 1-25.6-25.6v-561.28a25.6 25.6 0 1 1 51.2 0v561.28a25.6 25.6 0 0 1-25.6 25.6zM767.36 895.488c-50.56 0-92.864-26.496-107.776-67.52-10.368-28.416-6.528-59.712 10.752-88.128a144.128 144.128 0 0 1 74.24-59.072c17.024-6.208 34.496-9.344 51.968-9.344 50.56 0 92.864 26.496 107.776 67.456 20.608 56.576-17.536 122.624-84.928 147.2a151.296 151.296 0 0 1-51.968 9.344z m29.184-172.8c-11.52 0-23.104 2.112-34.496 6.208a92.608 92.608 0 0 0-48 37.568c-9.024 14.848-11.264 30.464-6.336 44.032 10.432 28.8 54.272 42.048 94.08 27.584 40.192-14.656 65.152-52.032 54.4-81.6-7.488-20.544-30.848-33.792-59.648-33.792z" p-id="8631"></path><path d="M883.84 783.488a25.6 25.6 0 0 1-25.6-25.6v-561.28a25.6 25.6 0 1 1 51.2 0v561.344a25.6 25.6 0 0 1-25.6 25.6z" p-id="8632"></path><path d="M372.736 372.224h-2.944a51.264 51.264 0 0 1-51.2-51.2v-89.6c0-27.072 21.12-49.28 47.744-51.072l491.904-115.264c31.232 0 51.2 37.888 51.2 64v74.24c0 27.904-21.504 51.648-47.616 53.632L372.8 372.288z m-3.008-140.8v88.896l488.448-114.496c-0.896-0.064 0-1.664 0-2.56v-74.24a29.44 29.44 0 0 0-3.712-11.2L369.728 231.424z" p-id="8633"></path></svg></button>
+      </div>
+      <div id="popup">
+        <br>进入游戏，选择游戏模式后，设置游戏局数和玩家个人筹码数</br>
+        <br>每一局游戏内有三轮投掷机会，玩家一人一次轮流投掷骰子，每个玩家有5个骰子前两次投掷骰子之后可以选择锁定0~5个骰子，锁定的骰子位于选定区域不再改变</br>
+        <br>前两轮每轮投掷结束并在所有玩家锁定骰子后，每位玩家可以选择增加倍率：0，1，2，3。选择完成后进入下一轮。</br>
+        <br>第三轮投掷结束后，所有玩家的全部骰子自动锁定并进行计分（得分为五个骰子的点数总和+奖励分），得出最终结果，筹码划分。</br>
+        <br>奖励分示例</br>
+        <br>双对(一组2个相同的骰子)：10分</br>
+        <br>三连(一组3个相同的骰子)：10分</br>
+        <br>葫芦(一组2个相同的骰子加一组3个相同的骰子)：20分</br>
+        <br>四连(一组4个相同的骰子)：40分</br>
+        <br>五连(一组5个相同的骰子)：100分</br>
+        <br>小顺子(除12345及23456外每个骰子都不相同)：30分</br>
+        <br>大顺子(12345或23456)：60分</br>
+        <br>结算规则</br>
+        <br>分数最高的玩家从所有其它玩家手里赢得（二人分差的绝对值）*（总倍率）的筹码。</br>
+        <br>N局游戏后，筹码最多的玩家获胜。
+        (如若中途有玩家筹码小于等于0，则该玩家被击飞，游戏直接结束。)
+        <button id="over">确认</button>
+      </div>
     </div>
-    <div class="wj">玩家二:</div>
-    <div class="wj">玩家三:</div>
-    <div class="wj">玩家四:</div>
-  </div>
+    <!-- 对局状态 -->
+    <div class="duiju">
+      <div class="item1">
+        <button id="caid">菜单</button>
+        <div class="cd">
+          <button id="addplayer" onclick="appendText()">添加玩家</button>
+          <button id="removeplayer" >减少玩家</button>
+          <button
+            id="remake"
+            onclick="{ if(confirm('确定跳转？'))location.href='界面.html'}"
+          >
+            刷新一下
+          </button>
+        </div>
+      </div>
+      <div class="item">当前轮数</div>
+      <div class="item">当前局数</div>
+      <div class="item">当前倍率</div>
+    </div>
 
+    <!-- 骰子区域 -->
+    <div class="touzi">
+      <div class="dice">
+        <img id="img1" src="./img/1.png" width="200px" height="200px" />
+      </div>
+      <div class="dice">
+        <img id="img2" src="./img/1.png" width="200px" height="200px" />
+      </div>
+      <div class="dice">
+        <img id="img3" src="./img/1.png" width="200px" height="200px" />
+      </div>
+      <div class="dice">
+        <img id="img4" src="./img/1.png" width="200px" height="200px" />
+      </div>
+      <div class="dice">
+        <img id="img5" src="./img/1.png" width="200px" height="200px" />
+      </div>
+      <button id="btn">摇骰子</button>
+      <!-- 投骰子的按钮 -->
+      <button id="nextmove">下一步</button>
+      <button id="bg">开始</button>
+    </div>
+    <div class="clear"></div>
+    <button id="jiabei0">不加倍</button>
+    <button id="jiabei1">加倍</button>
+    <button id="jiabei2">两倍</button>
+    <button id="jiabei3">三倍</button>
 
+    <!-- 玩家情况区域 -->
+    <div class="player"></div>
 
-  <script src="界面.js"></script>
-
-</body>
-
+    <script src="game.js"></script>
+    <!-- <script src="ai.js"></script> -->
+  </body>
 </html>

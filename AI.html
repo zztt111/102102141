@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI</title>
+    <link rel="stylesheet" href="AI.css" />
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+  </head>
+
+  <body>
+    <!-- 白色动态背景 -->
+    <!-- <canvas id="Mycanvas">
+      <script src="Mycanvas.js"></script>
+    </canvas> -->
+    
+    <video
+      id="video"
+      src="img\seagull1.mp4"
+      autoplay
+      loop
+      muted
+    ></video>
+    <!-- 对局状态 -->
+    <div class="duiju">
+      <div class="item1">
+        <button id="caid">菜单</button>
+        <div class="cd">
+          <button id="addplayer" onclick="appendText()">添加玩家</button>
+          <button id="removeplayer" onclick="remove()">减少玩家</button>
+          <button
+            id="remake"
+            onclick="{ if(confirm('确定跳转？'))location.href='界面.html'}"
+          >
+            刷新一下
+          </button>
+        </div>
+      </div>
+      <div class="item">当前轮数</div>
+      <div class="item">当前局数</div>
+      <div class="item">当前倍率</div>
+    </div>
+
+    <!-- 骰子区域 -->
+    <div class="touzi">
+      <div class="dice">
+        <img id="img1" src="./img/1.png" width="200px" height="200px" />
+      </div>
+      <div class="dice">
+        <img id="img2" src="./img/1.png" width="200px" height="200px" />
+      </div>
+      <div class="dice">
+        <img id="img3" src="./img/1.png" width="200px" height="200px" />
+      </div>
+      <div class="dice">
+        <img id="img4" src="./img/1.png" width="200px" height="200px" />
+      </div>
+      <div class="dice">
+        <img id="img5" src="./img/1.png" width="200px" height="200px" />
+      </div>
+      <button id="btn">摇骰子</button>
+      <!-- 投骰子的按钮 -->
+      <button id="nextmove">下一步</button>
+      <button id="bg">开始</button>
+    </div>
+    <div class="clear"></div>
+    <div class="jb">
+      <button id="jiabei0">不加倍</button>
+      <button id="jiabei1">加倍</button>
+      <button id="jiabei2">两倍</button>
+      <button id="jiabei3">三倍</button>
+    </div>
+
+    <!-- 玩家情况区域 -->
+    <div class="player">
+      <audio id="music2" src="img\music0.m4a"  loop="loop">你的浏览器不支持audio标签。</audio>     
+      <button id="music"><svg t="1697017988979" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="8629" width="60px" height="60px"><path d="M227.456 959.232c-50.56 0-92.864-26.496-107.776-67.52-10.368-28.416-6.528-59.776 10.752-88.128a143.552 143.552 0 0 1 74.24-59.072 152.32 152.32 0 0 1 51.968-9.344c50.56 0 92.864 26.496 107.776 67.52 10.368 28.416 6.528 59.776-10.752 88.128a143.552 143.552 0 0 1-74.24 59.072 152.32 152.32 0 0 1-51.968 9.344z m29.184-172.864c-11.52 0-23.04 2.112-34.432 6.208a92.352 92.352 0 0 0-48 37.632c-9.024 14.848-11.264 30.464-6.4 44.032 10.432 28.736 54.272 42.048 94.08 27.584 20.8-7.552 37.888-20.928 48-37.632 9.024-14.848 11.264-30.464 6.4-44.032-7.488-20.544-30.912-33.792-59.648-33.792z" p-id="8630"></path><path d="M344.128 844.736a25.6 25.6 0 0 1-25.6-25.6v-561.28a25.6 25.6 0 1 1 51.2 0v561.28a25.6 25.6 0 0 1-25.6 25.6zM767.36 895.488c-50.56 0-92.864-26.496-107.776-67.52-10.368-28.416-6.528-59.712 10.752-88.128a144.128 144.128 0 0 1 74.24-59.072c17.024-6.208 34.496-9.344 51.968-9.344 50.56 0 92.864 26.496 107.776 67.456 20.608 56.576-17.536 122.624-84.928 147.2a151.296 151.296 0 0 1-51.968 9.344z m29.184-172.8c-11.52 0-23.104 2.112-34.496 6.208a92.608 92.608 0 0 0-48 37.568c-9.024 14.848-11.264 30.464-6.336 44.032 10.432 28.8 54.272 42.048 94.08 27.584 40.192-14.656 65.152-52.032 54.4-81.6-7.488-20.544-30.848-33.792-59.648-33.792z" p-id="8631"></path><path d="M883.84 783.488a25.6 25.6 0 0 1-25.6-25.6v-561.28a25.6 25.6 0 1 1 51.2 0v561.344a25.6 25.6 0 0 1-25.6 25.6z" p-id="8632"></path><path d="M372.736 372.224h-2.944a51.264 51.264 0 0 1-51.2-51.2v-89.6c0-27.072 21.12-49.28 47.744-51.072l491.904-115.264c31.232 0 51.2 37.888 51.2 64v74.24c0 27.904-21.504 51.648-47.616 53.632L372.8 372.288z m-3.008-140.8v88.896l488.448-114.496c-0.896-0.064 0-1.664 0-2.56v-74.24a29.44 29.44 0 0 0-3.712-11.2L369.728 231.424z" p-id="8633"></path></svg></button>
+    </div>
+
+    <!-- <script src="game.js"></script> -->
+    <script src="ai.js"></script>
+  </body>
+</html>
